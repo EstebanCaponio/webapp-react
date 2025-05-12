@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import FilmsPage from "./pages/Films"
 import DefaultLayout from "./layout/DefaultLayout"
+import FilmsDetailsPage from "./pages/FilmDetails"
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
           <Route path='/films' element={<FilmsPage />} />
+          <Route path='/films:id' element={<FilmsDetailsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
