@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import FilmCard from "../components/FilmCard";
 import axios from "axios";
 
@@ -8,25 +8,27 @@ export default function FilmsPage() {
 
     function getFilms() {
         axios.get('http://127.0.0.1:3000/movies')
-            .then(response => console.log(response))
+            .then(response => setFilms(response.data))
             .catch(err => console.log(err))
     }
 
-    getFilms()
+    useEffect(() => { getFilms() }, []);
 
     return (
         <>
-            <h1>films</h1>
-            <div className="row">
-                {films.lenght ? films.map(film => {
-                    <div className="col-12 col-md-4">
-                        <FilmCard />
-                    </div>
-                }) :
-                    <div className="alert alert-danger text-center" role="alert">
-                        NESSUN FILM TROVATO
-                    </div>
-                }
+            <div className="bg-black">
+                <h1 className="text-light">films</h1>
+                <div className="row">
+                    {films ? films.map(film => (
+                        <div className="col-12 col-md-4 mb-5" key={film.id}>
+                            <FilmCard data={film} />
+                        </div>
+                    )) :
+                        <div className="alert alert-danger text-center" role="alert">
+                            NESSUN FILM TROVATO
+                        </div>
+                    }
+                </div>
             </div>
         </>
     )
