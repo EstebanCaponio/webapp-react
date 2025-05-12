@@ -1,5 +1,4 @@
 export default function FilmsDetailsPage() {
-
     return (
         <>
             <div>
