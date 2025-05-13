@@ -1,8 +1,6 @@
-export default function StarRating() {
+export default function StarRating({ vote_review }) {
 
-    return (
-        <div>
-            test
-        </div>
-    )
-};
+    console.log(vote_review)
+
+    return (test)
+}
