@@ -11,7 +11,7 @@ export default function FilmCard({ data }) {
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{abstract}</p>
-                    <NavLink to='/films:id' className="btn btn-dark bg-black" data={data}>
+                    <NavLink to={`/films/${id}`} className="btn btn-dark bg-black" data={data}>
                         Details
                     </NavLink>
                 </div>
