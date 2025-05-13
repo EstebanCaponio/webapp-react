@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import StarRating from "../components/starRating";
 
 export default function FilmsDetailsPage() {
 
@@ -19,7 +20,7 @@ export default function FilmsDetailsPage() {
 
     return (
         <>
-            <div className="row">
+            {/* <div className="row">
 
                 <header>
                     <h1>{film.title}</h1>
@@ -42,7 +43,36 @@ export default function FilmsDetailsPage() {
                         NESSUNA RECENSIONE
                     </div>
                 }
-            </div >
+            </div > */}
+
+            <div class="container">
+                <div class="film-header-card">
+                    <header>
+                        <h1>{film.title}</h1>
+                        <h2>{film.director}</h2>
+                        <p>{film.abstract}</p>
+                    </header>
+                </div>
+
+                <hr class="divider" />
+
+                {film && film.reviews ? (
+                    film.reviews.map(comm => (
+                        <div key={comm.id} className="review-card">
+                            <h2>{comm.name}</h2>
+                            <h4>
+                                Voto: {comm.vote}
+                                <StarRating vote={film.reviews} />
+                            </h4>
+                            <p>{comm.text}</p>
+                        </div>
+                    ))
+                ) : (
+                    <div className="alert alert-danger text-center no-reviews" role="alert">
+                        NESSUNA RECENSIONE
+                    </div>
+                )}
+            </div>
         </>
     )
 };
