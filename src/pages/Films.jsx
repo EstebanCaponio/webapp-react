@@ -51,8 +51,8 @@ export default function FilmsPage() {
                     </form>
                 </div > */}
 
-                <div class="search-container">
-                    <form onSubmit={searchFilms} role="search" class="search-form">
+                <div className="search-container">
+                    <form onSubmit={searchFilms} role="search" className="search-form">
                         <input
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}

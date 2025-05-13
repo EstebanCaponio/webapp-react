@@ -45,8 +45,8 @@ export default function FilmsDetailsPage() {
                 }
             </div > */}
 
-            <div class="container">
-                <div class="film-header-card">
+            <div className="container">
+                <div className="film-header-card">
                     <header>
                         <h1>{film.title}</h1>
                         <h2>{film.director}</h2>
@@ -54,7 +54,7 @@ export default function FilmsDetailsPage() {
                     </header>
                 </div>
 
-                <hr class="divider" />
+                <hr className="divider" />
 
                 {film && film.reviews ? (
                     film.reviews.map(comm => (
