@@ -17,34 +17,8 @@ export default function FilmsDetailsPage() {
 
     useEffect(getFilm, [id]);
 
-
     return (
         <>
-            {/* <div className="row">
-
-                <header>
-                    <h1>{film.title}</h1>
-                    <h2>{film.director}</h2>
-                    <p>{film.abstract}</p>
-                </header>
-
-                <hr />
-
-                {film && film.reviews ?
-                    film.reviews.map(comm => (
-                        <div key={comm.id}>
-                            <h2>{comm.name}</h2>
-                            <h4>{comm.vote}</h4>
-                            <p>{comm.text}</p>
-                        </div>
-                    ))
-                    :
-                    <div className="alert alert-danger text-center" role="alert">
-                        NESSUNA RECENSIONE
-                    </div>
-                }
-            </div > */}
-
             <div className="container">
                 <div className="film-header-card">
                     <header>
@@ -62,7 +36,7 @@ export default function FilmsDetailsPage() {
                             <h2>{comm.name}</h2>
                             <h4>
                                 Voto: {comm.vote}
-                                <StarRating vote={film.reviews} />
+                                <StarRating vote={film.vote_review} />
                             </h4>
                             <p>{comm.text}</p>
                         </div>
