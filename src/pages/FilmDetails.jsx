@@ -7,6 +7,11 @@ export default function FilmsDetailsPage() {
 
     const { id } = useParams();
     const [film, setFilm] = useState({});
+    const [formData, setFormData] = useState({
+        name: '',
+        vote: 1,
+        text: ''
+    });
 
 
     function getFilm() {
@@ -16,6 +21,35 @@ export default function FilmsDetailsPage() {
     }
 
     useEffect(getFilm, [id]);
+
+    const handleFormData = (e) => {
+        const { name, value } = e.target;
+
+        let currentValue = value;
+        if (name === 'value') {
+            currentValue = parseInt(value);
+        }
+
+        setFormData((formData) => ({
+            ...formData,
+            [name]: currentValue,
+        }));
+    };
+
+    const sendData = (e) => {
+        e.preventDefault();
+        // console.log(formData);
+        axios.post(`http://127.0.0.1:3000/movies/${id}/reviews`, formData)
+            .then(res => {
+                getFilm()
+                setFormData({
+                    name: '',
+                    vote: 1,
+                    text: ''
+                })
+            })
+            .catch(err => { console.log(err) });
+    }
 
     return (
         <>
@@ -46,6 +80,35 @@ export default function FilmsDetailsPage() {
                         NESSUNA RECENSIONE
                     </div>
                 )}
+
+                <div className="add-review-card">
+                    <h2>Add review:</h2>
+                    <form className="add-review-form"
+                        onSubmit={sendData}>
+                        <div className="form-group">
+                            <label htmlFor="name">Name:</label>
+                            <input type="text" id="name" name="name" className="form-control" placeholder="Insert your name"
+                                value={formData.name}
+                                onChange={handleFormData} required />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="vote">Vote (1-5):</label>
+                            <input type="number" id="vote" name="vote" className="form-control" min={1} max={5}
+                                value={formData.vote}
+                                onChange={handleFormData} required />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="text">Text:</label>
+                            <textarea id="text" name="text" rows="3" className="form-control"
+                                value={formData.text}
+                                onChange={handleFormData}></textarea>
+                        </div>
+                        <button type="submit" className="submit-button">
+                            send
+                        </button>
+                    </form>
+                </div>
+
             </div>
         </>
     )

@@ -1,14 +1,9 @@
 export default function StarRating({ vote }) {
 
-    console.log(vote)
-
     let round = 0
     let votes = vote
     vote = Math.floor(vote)
     votes = votes - vote
-
-
-
 
     const starReviews = [];
     for (let index = 0; index < 5; index++) {

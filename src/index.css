@@ -221,65 +221,117 @@ nav li a.active {
 
 .container {
     max-width: 800px;
-    /* Larghezza massima del contenuto */
     margin: 20px auto;
-    /* Centra il contenuto orizzontalmente con un po' di margine superiore e inferiore */
     padding: 20px;
 }
 
 .film-header-card {
     background-color: #d10b0b;
-    /* Sfondo bianco per la card dell'header */
     color: black;
-    /* Testo nero per la card dell'header */
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Ombra leggera opzionale */
 }
 
 .divider {
     border-color: white;
-    /* Linea di separazione bianca */
     margin: 20px 0;
 }
 
 .review-card {
-    background-color: #d10b0b;
-    /* Sfondo bianco per ogni recensione */
+    background-color: white;
     color: black;
-    /* Testo nero per ogni recensione */
     padding: 15px;
-    border: 1px solid #ccc;
-    /* Bordo grigio chiaro */
+    border: 1px solid black;
     border-radius: 8px;
     margin-bottom: 15px;
 }
 
 .review-card h2 {
     margin-top: 0;
-    color: white;
-    /* Titolo della recensione leggermente più scuro */
+    color: black;
 }
 
 .review-card h4 {
-    color: white;
-    /* Voto della recensione in grigio */
+    color: black;
     margin-bottom: 5px;
 }
 
 .review-card p {
     margin-bottom: 0;
-    color: white;
+    color: black;
 }
 
 .no-reviews {
     background-color: #f8d7da;
-    /* Sfondo rosso chiaro per l'alert */
     color: #721c24;
-    /* Testo rosso scuro per l'alert */
     border: 1px solid #f5c6cb;
     border-radius: 4px;
     padding: 15px;
+}
+
+/* form */
+
+.add-review-card {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.add-review-card h2 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    /* background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer; */
+    background-color: #d10b0b;
+    color: #fff;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
 }
