@@ -36,7 +36,7 @@ export default function FilmsDetailsPage() {
                             <h2>{comm.name}</h2>
                             <h4>
                                 Voto: {comm.vote}
-                                <StarRating vote={film.vote_review} />
+                                <StarRating vote={comm.vote} />
                             </h4>
                             <p>{comm.text}</p>
                         </div>
